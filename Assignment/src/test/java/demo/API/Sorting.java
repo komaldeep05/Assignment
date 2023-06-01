@@ -31,8 +31,9 @@ public class Sorting {
 	@Test(priority = 0)
 	public void OpenMakeMyTripURL() throws InterruptedException {
 		try {
-			String downloadPath=System.getProperty("user.dir");
-			System.setProperty("webdriver.chrome.driver", downloadPath+"\\src\\main\\java\\resources\\chromedriver.exe");
+			String downloadPath = System.getProperty("user.dir");
+			System.setProperty("webdriver.chrome.driver",
+					downloadPath + "\\src\\main\\java\\resources\\chromedriver.exe");
 			driver.get("https://www.makemytrip.com/");
 			driver.manage().window().maximize();
 			// driver.findElement(By.xpath("//*[@id=\"SW\"]/div[1]/div[2]/div[2]/div/section/div[4]/p/a[1]")).click();
@@ -91,6 +92,7 @@ public class Sorting {
 	public void SortingDeparture() {
 		waitForVisibility(driver, By.xpath("//span[text()='Departure']"), 30);
 		driver.findElement(By.xpath("//span[text()='Departure']")).click();
+		System.out.println("We have sorted the search results");
 	}
 
 	@Test(priority = 3)
@@ -166,7 +168,7 @@ public class Sorting {
 			if (AMM.equals(Am)) {
 
 				S = m;
-				System.out.println("Size of Amount List :" + m);
+				System.out.println("Place of Second lowest price in Amount List:" + m);
 			}
 
 		}
@@ -174,7 +176,8 @@ public class Sorting {
 		String Name = Namelst.get(S).getText();
 		System.out.println("Name Of Flight :" + Name);
 		driver.quit();
-
+		System.out.println(
+				"We have printed second lowest price and name of that flight and also prices of all the flight");
 	}
 
 }
